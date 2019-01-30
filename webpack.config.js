@@ -1,9 +1,26 @@
-const path = require('paht');
+const path = require('path');
 
 module.exports = {
-    mode: 'development',
+	mode: 'development',
 
-    entry: path.resolve(__dirname, './src/index'),
+	entry: path.resolve(__dirname, './src/index'),
 
-    output: path.resolve(__dirname, 'dist'),
+	output: {
+		filename: '[name].js'
+	},
+
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/react']
+					}
+				}
+			}
+		]
+	}
 }
