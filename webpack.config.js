@@ -6,7 +6,8 @@ module.exports = {
 	entry: path.resolve(__dirname, './src/index'),
 
 	output: {
-		filename: '[name].js'
+		path: path.resolve(__dirname, './dist'),
+		filename: '[name].bundle.js'
 	},
 
 	module: {
@@ -23,5 +24,13 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: 'React APP',
+			filename: path.resolve(__dirname, './dist/index.html'),
+			template: path.resolve(__dirname, './src/index.ejs')
+		})
+	]
 }
