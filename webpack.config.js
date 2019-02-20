@@ -1,12 +1,24 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
 	mode: 'development',
 
-	entry: path.resolve(__dirname, './src/index'),
+	entry: path.resolve(__dirname, 'src', 'index'),
 
 	output: {
 		filename: '[name].js'
+	},
+
+	// 开发服务器配置
+	devServer: {
+		port: 9000,
+		hot: true,
+		open: true,
+		contentBase: path.resolve(__dirname, 'public'),
+		proxy: {
+			'/api': 'http://localhost:3000'
+		}
 	},
 
 	module: {
@@ -23,5 +35,10 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+
+	plugins: [
+		// 热更新
+		new webpack.HotModuleReplacementPlugin()
+	]
 }
