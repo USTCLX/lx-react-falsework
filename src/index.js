@@ -15,7 +15,6 @@ class App extends Component {
     }
 
     onClick = () => {
-        console.log('keke');
         this.setState({
             count: this.state.count + 1
         })

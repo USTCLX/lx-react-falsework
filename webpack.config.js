@@ -7,7 +7,8 @@ module.exports = {
 	entry: path.resolve(__dirname, 'src', 'index'),
 
 	output: {
-		filename: '[name].js'
+		path: path.resolve(__dirname, './dist'),
+		filename: '[name].bundle.js'
 	},
 
 	// 开发服务器配置
