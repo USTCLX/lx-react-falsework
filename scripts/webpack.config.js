@@ -1,3 +1,10 @@
+/*
+ * @Author: lixiang 
+ * @Date: 2019-02-24 17:22:45 
+ * @Last Modified by: lixiang
+ * @Last Modified time: 2019-02-24 17:23:46
+ * @Description: 最初的webpack配置，已经不用了
+ */
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +17,7 @@ const IS_PROD = ENV === 'production';
 const SOURCE_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
-	mode: 'development',
+	mode: ENV,
 
 	entry: path.resolve(__dirname, 'src', 'index'),
 
@@ -18,8 +25,6 @@ module.exports = {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].[hash:16].js'
 	},
-
-	devtool: IS_PROD ? false : 'cheap-eval-source-map',
 
 	module: {
 		rules: [
@@ -49,14 +54,17 @@ module.exports = {
 	plugins: [
 		// 热更新
 		new webpack.HotModuleReplacementPlugin(),
+
 		// 清空dist
 		new CleanWebpackPlugin(['dist']),
+
 		// html模版
 		new HtmlWebpackPlugin({
 			title: 'react前端脚手架',
 			filename: path.resolve(__dirname, 'dist', 'index.html'),
 			template: path.resolve(__dirname, 'src', 'index.ejs'),
 		}),
+
 		// mini-css
 		new MiniCssExtractPlugin({
 			filename: '[name].[hash:16].css',

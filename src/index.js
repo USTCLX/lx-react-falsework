@@ -2,7 +2,7 @@
  * @Author: lixiang 
  * @Date: 2019-01-30 14:34:25 
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-02-20 23:09:45
+ * @Last Modified time: 2019-02-24 16:30:10
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -16,7 +16,7 @@ class App extends Component {
 
     onClick = () => {
         this.setState({
-            count: this.state.count + 1
+            count: this.state.count + 2
         })
     }
 
