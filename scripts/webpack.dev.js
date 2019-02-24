@@ -2,17 +2,10 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { ENV, SOURCE_DIR, SOURCE_ENTRY, DIST_DIR } = require('./config');
+const commonConfig = require('./webpack.common');
+const { SOURCE_DIR, DIST_DIR } = require('./config');
 
-module.exports = {
-  mode: ENV,
-
-  entry: SOURCE_ENTRY,
-
-  output: {
-    path: DIST_DIR,
-    filename: '[name].[hash:16].js'
-  },
+module.exports = Object.assign(commonConfig, {
 
   devtool: 'inline-source-map',
 
@@ -63,4 +56,4 @@ module.exports = {
       '/api': 'http://localhost:3000'
     }
   }
-}
+}) 

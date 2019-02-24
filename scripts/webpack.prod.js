@@ -4,18 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const { ENV, SOURCE_DIR, SOURCE_ENTRY, DIST_DIR, ROOT_DIR } = require('./config');
+const commonConfig = require('./webpack.common');
+const { SOURCE_DIR, DIST_DIR, ROOT_DIR } = require('./config');
 
-module.exports = {
-  mode: ENV,
 
-  entry: SOURCE_ENTRY,
-
-  output: {
-    path: DIST_DIR,
-    filename: '[name].[hash:16].js'
-  },
-
+module.exports = Object.assign(commonConfig, {
   devtool: 'source-map',
 
   module: {
@@ -63,4 +56,4 @@ module.exports = {
     })
   ]
 
-}
+}) 

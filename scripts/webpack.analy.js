@@ -1,4 +1,4 @@
-const webpackBaseConfig = require('../webpack.config');
+const webpackBaseConfig = require('./webpack.prod');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 webpackBaseConfig.plugins.push(
