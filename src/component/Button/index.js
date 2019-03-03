@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-02-20 23:05:58
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-02-24 10:47:31
+ * @Last Modified time: 2019-03-01 08:55:04
  */
 
 import React, { Component } from 'react';
@@ -15,6 +15,6 @@ export default class Button extends Component {
   }
 
   render() {
-    return <button className='primary' onClick={this.onClick}>Click me</button>
+    return <button className='primary' onClick={this.onClick}>{this.props.children}</button>
   }
 }

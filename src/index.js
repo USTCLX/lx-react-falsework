@@ -2,30 +2,11 @@
  * @Author: lixiang 
  * @Date: 2019-01-30 14:34:25 
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-02-24 21:20:28
+ * @Last Modified time: 2019-03-03 12:41:06
  */
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './pages/example';
 
-import Button from './component/Button';
-
-class App extends Component {
-    state = {
-        count: 0
-    }
-
-    onClick = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
-    }
-
-    render() {
-        return <div style={{ textAlign: 'center' }}>
-            <h1>Hello World {this.state.count}</h1>
-            <Button onClick={this.onClick} />
-        </div>
-    }
-}
 
 ReactDOM.render(<App />, document.getElementById('app'));
