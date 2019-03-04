@@ -18,17 +18,25 @@ module.exports = Object.assign(commonConfig, {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/react'],
-            plugins: [require('@babel/plugin-proposal-class-properties')]
+            plugins: [
+              require('@babel/plugin-proposal-class-properties'),
+              [
+                "import",
+                {
+                  "libraryName": "antd",
+                  "style": 'css' // `style: true` 会加载 less 文件
+                }
+              ],
+            ]
           }
         }
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: /(node_modules)/,
         use: [
           'style-loader',
           'css-loader',
-          { loader: 'sass-loader', options: { includePaths: [SOURCE_DIR] } }
+          { loader: 'sass-loader', options: { includePaths: [SOURCE_DIR] } },
         ]
       }
     ]

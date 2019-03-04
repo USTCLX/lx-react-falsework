@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../../component/Button';
+import { Button } from 'antd';
 
 export default class App extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return <div style={{ textAlign: 'center' }}>
       <h1>Hello World {this.state.count}</h1>
-      <Button onClick={this.onClick} >click me</Button>
+      <Button type='primary' onClick={this.onClick} >click me</Button>
     </div>
   }
 }
