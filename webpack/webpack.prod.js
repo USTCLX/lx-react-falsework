@@ -40,6 +40,18 @@ module.exports = Object.assign(commonConfig, {
           'css-loader',
           { loader: 'sass-loader', options: { includePaths: [SOURCE_DIR] } }
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
