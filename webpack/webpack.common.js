@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-02-24 21:13:07
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-05-19 23:06:33
+ * @Last Modified time: 2019-05-19 23:15:39
  */
 
 const { ENV, SOURCE_ENTRY, DIST_DIR } = require('./config');
