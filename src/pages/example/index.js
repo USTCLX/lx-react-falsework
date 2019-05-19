@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import { hot } from 'react-hot-loader/root';
 
-import './iconfont.css';
-
-export default class App extends Component {
+class App extends Component {
   state = {
-    count: 0
+    count: 1
   }
 
   onClick = () => {
@@ -18,7 +17,8 @@ export default class App extends Component {
     return <div style={{ textAlign: 'center' }}>
       <h1>Hello World {this.state.count}</h1>
       <Button type='primary' onClick={this.onClick} >click me</Button>
-      <i class="hotel-icons htlf-ic_information_comme"></i>
     </div>
   }
 }
+
+export default hot(App);

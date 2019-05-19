@@ -27,6 +27,7 @@ module.exports = Object.assign(commonConfig, {
                   "style": 'css' // `style: true` 会加载 less 文件
                 }
               ],
+              "react-hot-loader/babel",
             ]
           }
         }
@@ -55,15 +56,14 @@ module.exports = Object.assign(commonConfig, {
   },
 
   plugins: [
-    // 热更新
-    new webpack.HotModuleReplacementPlugin(),
-
     // html模版
     new HtmlWebpackPlugin({
       title: 'react前端脚手架',
       filename: path.resolve(DIST_DIR, 'index.html'),
       template: path.resolve(SOURCE_DIR, 'index.ejs'),
     }),
+    // 热更新
+    new webpack.HotModuleReplacementPlugin(),
   ],
 
   // 开发服务器配置
@@ -73,6 +73,7 @@ module.exports = Object.assign(commonConfig, {
     hot: true,
     open: true,
     contentBase: SOURCE_DIR,
+    inline: true,  // inline 模式启动
     proxy: {
       '/api': 'http://localhost:3000'
     }
