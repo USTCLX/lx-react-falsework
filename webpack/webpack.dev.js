@@ -78,4 +78,4 @@ module.exports = Object.assign(commonConfig, {
       '/api': 'http://localhost:3000'
     }
   }
-}) 
+}); 

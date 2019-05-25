@@ -10,7 +10,7 @@ export default class App extends Component {
   onClick = () => {
     this.setState({
       count: this.state.count + 1
-    })
+    });
   }
 
   render() {
@@ -18,6 +18,6 @@ export default class App extends Component {
       <h1>Hello World {this.state.count}</h1>
       <Button type='primary' onClick={this.onClick} >click me</Button>
       <CButton>keke</CButton>
-    </div>
+    </div>;
   }
 }

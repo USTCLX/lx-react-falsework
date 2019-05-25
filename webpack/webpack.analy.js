@@ -3,6 +3,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 webpackBaseConfig.plugins.push(
   new BundleAnalyzerPlugin()
-)
+);
 
 module.exports = webpackBaseConfig;
