@@ -2,25 +2,25 @@
  * @Author: lixiang
  * @Date: 2019-05-26 12:30:37
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-05-26 12:39:53
+ * @Last Modified time: 2019-05-26 22:38:07
  */
 
 const isType = (type) => {
   return (obj) => {
-    return Object.prototype.toString.call(obj) === type;
+    return Object.prototype.toString.call(obj) === `[object ${type}]`;
   };
 };
 
-const isString = isType("[object String]");
+const isString = isType("String");
 
-const isNumber = isType("[object Number]");
+const isNumber = isType("Number");
 
-const isObject = isType("[object Object]");
+const isObject = isType("Object");
 
-const isFunction = isType("[object Function]");
+const isFunction = isType("Function");
 
-const isBoolean = isType("[object Boolean]");
+const isBoolean = isType("Boolean");
 
-const isArray = isType["[object Array]"];
+const isArray = isType("Array");
 
 export { isString, isNumber, isObject, isFunction, isBoolean, isArray };
