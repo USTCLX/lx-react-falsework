@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=development npx webpack-dev-server --config ./webpack/webpack.dev.js",
     "build": "cross-env NODE_ENV=production npx webpack --config ./webpack/webpack.prod.js",
     "analy": "cross-env NODE_ENV=production npx webpack --config ./webpack/webpack.analy.js",
-    "lint:fix": "cross-env npx eslint --fix --ext .js src"
+    "lint:fix": "cross-env npx eslint --fix --ext .js src webpack"
   },
   "author": "lixiang",
   "license": "ISC",
