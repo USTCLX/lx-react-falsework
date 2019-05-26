@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-05-26 11:22:40
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-05-26 12:42:56
+ * @Last Modified time: 2019-05-26 16:52:11
  */
 
 import { isString, isFunction } from './isType';
@@ -21,7 +21,27 @@ class PubSub {
     }
     for (let i; i < fns.length; i++) {
       if (isFunction(fns[i])) {
-        this._cache[event].push(fns[i]);
+        this._cache[event].push({
+          fn: fns[i],
+          once: false,
+        });
+      }
+    }
+  }
+
+  once = (event, ...fns) => {
+    if (!isString(event)) {
+      return;
+    }
+    if (!this._cache[event]) {
+      this._cache[event] = [];
+    }
+    for (let i; i < fns.length; i++) {
+      if (isFunction(fns[i])) {
+        this._cache[event].push({
+          fn: fns[i],
+          once: true,
+        });
       }
     }
   }
@@ -31,9 +51,15 @@ class PubSub {
       return;
     }
     if (this._cache[event]) {
-      this._cache[event].forEach(fn => {
-        fn && fn(...args);
-      });
+      const events = this._cache[event];
+      for (let i = 0; i < events.length; i++) {
+        let item = events[i];
+        item.fn && item.fn(...args);
+        if (item.once) {
+          events.splice(i, 1);
+          i--;
+        }
+      }
     }
   }
 
