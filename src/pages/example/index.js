@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import CButton from '../../component/Button';
-import event from '../../utils/event';
 
 export default class App extends Component {
   state = {
@@ -13,7 +12,6 @@ export default class App extends Component {
     this.setState({
       count: this.state.count + 1,
     });
-    event.emit('event',{data:1});
   }
 
   render() {
