@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
 import CButton from '../../component/Button';
+import event from '../../utils/event';
 
 export default class App extends Component {
   state = {
@@ -11,15 +12,15 @@ export default class App extends Component {
   onClick = () => {
     this.setState({
       count: this.state.count + 1,
-      showCB: !this.state.showCB
     });
+    event.emit('event',{data:1});
   }
 
   render() {
     return <div style={{ textAlign: 'center' }}>
       <h1>Hello World {this.state.count}</h1>
       <Button type='primary' onClick={this.onClick} >click me</Button>
-      {this.state.showCB && <CButton>keke</CButton>}
+      <CButton>keke</CButton>
     </div>;
   }
 }

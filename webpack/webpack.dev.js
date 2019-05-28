@@ -19,7 +19,8 @@ module.exports = Object.assign(commonConfig, {
           options: {
             presets: ['@babel/preset-env', '@babel/react'],
             plugins: [
-              require('@babel/plugin-proposal-class-properties'),
+              "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-transform-parameters",
               [
                 "import",
                 {

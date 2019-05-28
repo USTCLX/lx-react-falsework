@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-05-26 11:22:40
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-05-26 16:52:11
+ * @Last Modified time: 2019-05-28 23:57:05
  */
 
 import { isString, isFunction } from './isType';
@@ -12,14 +12,14 @@ class PubSub {
     this._cache = {};
   }
 
-  on = (event, ...fns) => {
+  on(event, ...fns) {
     if (!isString(event)) {
       return;
     }
     if (!this._cache[event]) {
       this._cache[event] = [];
     }
-    for (let i; i < fns.length; i++) {
+    for (let i = 0; i < fns.length; i++) {
       if (isFunction(fns[i])) {
         this._cache[event].push({
           fn: fns[i],
@@ -36,7 +36,7 @@ class PubSub {
     if (!this._cache[event]) {
       this._cache[event] = [];
     }
-    for (let i; i < fns.length; i++) {
+    for (let i = 0; i < fns.length; i++) {
       if (isFunction(fns[i])) {
         this._cache[event].push({
           fn: fns[i],
@@ -46,7 +46,7 @@ class PubSub {
     }
   }
 
-  emit = (event, ...args) => {
+  emit(event, ...args) {
     if (!isString(event)) {
       return;
     }
@@ -80,5 +80,11 @@ class PubSub {
   }
 
 }
+
+function test(x = "hello", { a, b }, ...args) {
+  console.log(x, a, b, args);
+}
+
+test(12, 3, 4, 5, 6, 6, 7, 8, 8);
 
 export default new PubSub();

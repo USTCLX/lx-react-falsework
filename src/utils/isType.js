@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-05-26 12:30:37
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-05-26 22:38:07
+ * @Last Modified time: 2019-05-28 08:45:43
  */
 
 const isType = (type) => {
