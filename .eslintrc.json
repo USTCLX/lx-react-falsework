@@ -7,7 +7,12 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "react",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -17,9 +22,10 @@
     }
   },
   "rules": {
-    "semi": 2,
+    "semi": 0,
     "react/prop-types": 0,
-    "no-console": 0
+    "no-console": 0,
+    "prettier/prettier": "error"
   },
   "settings": {
     "react": {
