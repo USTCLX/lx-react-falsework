@@ -3,9 +3,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const commonConfig = require('./webpack.common');
-const { SOURCE_DIR, DIST_DIR } = require('./config');
+const { SOURCE_DIR, DIST_DIR, SOURCE_ENTRY, ASYNC_ENTRY } = require('./config');
 
 module.exports = Object.assign(commonConfig, {
+    entry: {
+        index: SOURCE_ENTRY,
+        async: './src/async',
+    },
+
     devtool: 'inline-source-map',
 
     module: {
