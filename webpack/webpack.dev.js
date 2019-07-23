@@ -13,6 +13,18 @@ module.exports = Object.assign(commonConfig, {
 
     devtool: 'inline-source-map',
 
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]|.[\\/]common/,
+                    name: 'lib.bundle.js',
+                    chunks: 'all',
+                },
+            },
+        },
+    },
+
     module: {
         rules: [
             {

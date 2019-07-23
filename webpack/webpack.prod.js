@@ -15,13 +15,25 @@ const {
 
 module.exports = Object.assign(commonConfig, {
     entry: {
+        async: path.resolve(process.cwd(), 'src', 'async'),
         index: SOURCE_ENTRY,
-        async: './src/async',
+    },
+
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]|.[\\/]common/,
+                    name: 'lib.bundle.js',
+                    chunks: 'all',
+                },
+            },
+        },
     },
 
     mode: 'development',
 
-    devtool: 'source-map',
+    devtool: 'none',
 
     module: {
         rules: [
