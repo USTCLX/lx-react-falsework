@@ -11,6 +11,12 @@ module.exports = Object.assign(commonConfig, {
         async: './src/async',
     },
 
+    output: {
+        path: DIST_DIR,
+        filename: '[name].[hash:16].js',
+        chunkFilename: '[name].bundle.js',
+    },
+
     devtool: 'inline-source-map',
 
     optimization: {

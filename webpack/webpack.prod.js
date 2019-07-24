@@ -19,6 +19,12 @@ module.exports = Object.assign(commonConfig, {
         index: SOURCE_ENTRY,
     },
 
+    output: {
+        path: DIST_DIR,
+        filename: '[name].[hash:16].js',
+        chunkFilename: '[name].bundle.js',
+    },
+
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -43,7 +49,11 @@ module.exports = Object.assign(commonConfig, {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env', '@babel/react'],
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/react',
+                            '@babel/plugin-syntax-dynamic-import',
+                        ],
                         plugins: [
                             require('@babel/plugin-proposal-class-properties'),
                             [
