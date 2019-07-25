@@ -8,7 +8,6 @@ const { SOURCE_DIR, DIST_DIR, SOURCE_ENTRY, ASYNC_ENTRY } = require('./config');
 module.exports = Object.assign(commonConfig, {
     entry: {
         index: SOURCE_ENTRY,
-        async: './src/async',
     },
 
     output: {
@@ -41,8 +40,8 @@ module.exports = Object.assign(commonConfig, {
                     options: {
                         presets: ['@babel/preset-env', '@babel/react'],
                         plugins: [
+                            '@babel/plugin-syntax-dynamic-import',
                             '@babel/plugin-proposal-class-properties',
-                            '@babel/plugin-transform-parameters',
                             [
                                 'import',
                                 {

@@ -2,7 +2,7 @@
  * @Author: lixiang
  * @Date: 2019-01-30 14:34:25
  * @Last Modified by: lixiang
- * @Last Modified time: 2019-07-24 21:29:51
+ * @Last Modified time: 2019-07-24 23:43:38
  */
 
 import 'react-hot-loader';
@@ -13,7 +13,7 @@ import { hot } from 'react-hot-loader/root';
 
 const HotApp = hot(App);
 
-import(/* webpackChunkName: "async" */ './async').then(({ default: add }) => {
+import(/* webpackChunkName: "__async" */ './async').then(({ default: add }) => {
     console.log('dynamic import');
     console.log('add', add(1, 2, 3));
 });

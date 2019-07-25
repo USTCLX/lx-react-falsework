@@ -15,7 +15,6 @@ const {
 
 module.exports = Object.assign(commonConfig, {
     entry: {
-        async: path.resolve(process.cwd(), 'src', 'async'),
         index: SOURCE_ENTRY,
     },
 
@@ -49,13 +48,10 @@ module.exports = Object.assign(commonConfig, {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/react',
-                            '@babel/plugin-syntax-dynamic-import',
-                        ],
+                        presets: ['@babel/preset-env', '@babel/react'],
                         plugins: [
-                            require('@babel/plugin-proposal-class-properties'),
+                            '@babel/plugin-syntax-dynamic-import',
+                            '@babel/plugin-proposal-class-properties',
                             [
                                 'import',
                                 {
