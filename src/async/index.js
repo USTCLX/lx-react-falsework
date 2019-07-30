@@ -6,7 +6,7 @@ const add = (...params) => {
     });
 };
 
-console.log('asnyc');
+console.log('i am asnyc');
 
 tools.push(add);
 

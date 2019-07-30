@@ -16,12 +16,13 @@ const {
 module.exports = Object.assign(commonConfig, {
     entry: {
         index: SOURCE_ENTRY,
+        // async: ASYNC_ENTRY,
     },
 
     output: {
         path: DIST_DIR,
         filename: '[name].[hash:16].js',
-        chunkFilename: '[name].bundle.js',
+        chunkFilename: '[name].[hash:16].js',
     },
 
     optimization: {
@@ -29,7 +30,7 @@ module.exports = Object.assign(commonConfig, {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]|.[\\/]common/,
-                    name: 'lib.bundle.js',
+                    name: 'lib',
                     chunks: 'all',
                 },
             },

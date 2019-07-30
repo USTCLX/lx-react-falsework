@@ -8,22 +8,23 @@ const { SOURCE_DIR, DIST_DIR, SOURCE_ENTRY, ASYNC_ENTRY } = require('./config');
 module.exports = Object.assign(commonConfig, {
     entry: {
         index: SOURCE_ENTRY,
+        // async: ASYNC_ENTRY,
     },
 
     output: {
         path: DIST_DIR,
         filename: '[name].[hash:16].js',
-        chunkFilename: '[name].bundle.js',
+        chunkFilename: '[name].[hash:16].js',
     },
 
-    devtool: 'inline-source-map',
+    devtool: 'none', //inline-source-map'
 
     optimization: {
         splitChunks: {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]|.[\\/]common/,
-                    name: 'lib.bundle.js',
+                    name: 'lib.bundle',
                     chunks: 'all',
                 },
             },
@@ -49,7 +50,7 @@ module.exports = Object.assign(commonConfig, {
                                     style: 'css', // `style: true` 会加载 less 文件
                                 },
                             ],
-                            'react-hot-loader/babel',
+                            // 'react-hot-loader/babel',
                         ],
                     },
                 },
@@ -84,14 +85,14 @@ module.exports = Object.assign(commonConfig, {
             template: path.resolve(SOURCE_DIR, 'index.ejs'),
         }),
         // 热更新
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
     ],
 
     // 开发服务器配置
     devServer: {
         host: '127.0.0.1',
         port: 8065,
-        hot: true,
+        // hot: true,
         open: true,
         contentBase: SOURCE_DIR,
         inline: true, // inline 模式启动
