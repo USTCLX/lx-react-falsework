@@ -7,8 +7,7 @@ const { SOURCE_DIR, DIST_DIR, SOURCE_ENTRY, ASYNC_ENTRY } = require('./config');
 
 module.exports = Object.assign(commonConfig, {
   entry: {
-    index: path.resolve(SOURCE_DIR, 'exercise', 'index'),
-    async: path.resolve(SOURCE_DIR, 'exercise', 'another.module.js'),
+    index: path.resolve(SOURCE_ENTRY),
   },
 
   output: {
@@ -17,7 +16,7 @@ module.exports = Object.assign(commonConfig, {
     chunkFilename: '[name].[hash:16].js',
   },
 
-  devtool: 'none', //inline-source-map'
+  devtool: 'inline-source-map', //inline-source-map'
 
   optimization: {
     splitChunks: {
@@ -96,9 +95,9 @@ module.exports = Object.assign(commonConfig, {
     liveReload: false,
     open: true,
     contentBase: SOURCE_DIR,
-    // inline: true, // inline 模式启动
-    // proxy: {
-    //   '/api': 'http://localhost:3000',
-    // },
+    inline: true, // inline 模式启动
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
 });
