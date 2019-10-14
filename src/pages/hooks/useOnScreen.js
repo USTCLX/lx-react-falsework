@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './polyfill';
 
-
 const useOnScreen = (ref, rootMargin = '0px') => {
   const [intersecting, setIntersecting] = useState(false); // 是否已经曝光
 
@@ -11,20 +10,19 @@ const useOnScreen = (ref, rootMargin = '0px') => {
         setIntersecting(entry.isIntersecting);
       },
       {
-        rootMargin
+        rootMargin,
       }
-    )
+    );
     if (ref && ref.current) {
       observer.observe(ref.current);
     }
     return () => {
       observer.unobserve();
-    }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return [intersecting]
+  return [intersecting];
 };
 
 export default useOnScreen;
-
